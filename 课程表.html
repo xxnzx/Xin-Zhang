@@ -1,0 +1,187 @@
+<html>
+<title>课程表</title>
+
+<head>
+    <style>
+        table {
+            width: 650px;
+            height: 100px;
+            border-collapse: collapse;
+            margin: 50px;
+            table-layout: fixed;
+            background-color: aliceblue
+        }
+
+        td,
+        th {
+            width: 110px;
+            height: 50px;
+            position: relative;
+
+        }
+
+        table,
+        td,
+        th {
+            border: 1px solid black;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <table>
+        <tr>
+            <th>时间/日期</th>
+            <th>星期一</th>
+            <th>星期二</th>
+            <th>星期三</th>
+            <th>星期四</th>
+            <th>星期五</th>
+        </tr>
+
+        <tr>
+            <td>8:20~10:00</td>
+            <td title="双周改为周三下午第一大节，管院机房上课">
+                <script>
+                    var dic1 = ["web应用开发技术", "一公教C411", "吕成功"]
+                    for (var x in dic1) {
+                        document.write(dic1[x] + "<br>");
+                    }
+                </script>
+            </td>
+            <td>
+                <script>
+                    var dic4 = ["西方文化简史", "一公教311", "张金柱"]
+                    for (var x in dic4) {
+                        document.write(dic4[x] + "<br>");
+                    }
+                </script>
+            </td>
+            <td title="双周没课">
+                <script>
+                    var dic3 = ["管理信息系统", "一公教C105", "刘烨"]
+                    for (var x in dic3) {
+                        document.write(dic3[x] + "<br>");
+                    }
+                </script>
+            </td>
+            <td title="双周为数据库原理及应用" ；>
+                <script>
+                    var dic5 = ["运营管理", "一公教B405", "刘亮/邓华"]
+                    for (var x in dic5) {
+                        document.write(dic5[x] + "<br>");
+                    }
+                </script>
+            </td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>10:20~12:00</td>
+            <td>
+                <script>
+                    var dic2 = ["毛泽东思想与中国特色社会主义理论体系", "一公教A120", "顾洪英"]
+                    for (var x in dic2) {
+                        document.write(dic2[x] + "<br>");
+                    }
+                </script>
+            </td>
+            <td>
+                <script>var dic6 = ["管理科学基础", "一公教C411", "赵方方"]
+                    for (var x in dic6) {
+                        document.write(dic6[x] + "<br>");
+                    }
+                </script>
+            </td>
+            <td>
+                <script>
+                    var dic2 = ["毛泽东思想与中国特色社会主义理论体系", "一公教A120", "顾洪英"]
+                    for (var x in dic2) {
+                        document.write(dic2[x] + "<br>");
+                    }
+                </script>
+            </td>
+            <td>
+                <script>var dic6 = ["管理科学基础", "一公教C411", "赵方方"]
+                    for (var x in dic6) {
+                        document.write(dic6[x] + "<br>");
+                    }
+                </script>
+            </td>
+            <td>
+                <script>
+                    var dic5 = ["运营管理", "一公教B405", "刘亮/邓华"]
+                    for (var x in dic5) {
+                        document.write(dic5[x] + "<br>");
+                    }
+                </script>
+            </td>
+        </tr>
+        <tr>
+            <th colspan="6"></th>
+        </tr>
+        <tr>
+            <td>14:00~15:40</td>
+            <td>
+                <script>
+                    var dic3 = ["管理信息系统", "一公教C105", "刘烨"]
+                    for (var x in dic3) {
+                        document.write(dic3[x] + "<br>");
+                    }
+                </script>
+            </td>
+            <td title="双周不上">
+                <script>var dic10 = ["数据库实践", "管院机房", "吴君"]
+                    for (var x in dic10) {
+                        document.write(dic10[x] + "<br>");
+                    }
+                </script>
+            </td>
+            <td title="双周不上">
+                <script>var dic7 = ["会计学", "一公教B101", "刘晓晖*姜红"]
+                    for (var x in dic7) {
+                        document.write(dic7[x] + "<br>");
+                    }
+                </script>
+            </td>
+            <td>体育</td>
+            <td>
+                <script>
+                    var dic2 = ["毛泽东思想与中国特色社会主义理论体系", "一公教A120", "顾洪英"]
+                    for (var x in dic2) {
+                        document.write(dic2[x] + "<br>");
+                    }
+                </script>
+            </td>
+        </tr>
+        <tr>
+            <td>16:00~17:40</td>
+            <td>
+                <script>var dic9 = ["电子商务", "一公教B303", "张亮"]
+                    for (var x in dic9) {
+                        document.write(dic9[x] + "<br>");
+                    }
+                </script>
+            </td>
+            <td>
+                <script>var dic8 = ["数据库原理及应用", "一公教C109", "吴君"]
+                    for (var x in dic8) {
+                        document.write(dic8[x] + "<br>");
+                    }
+                </script>
+            </td>
+            <td></td>
+            <td>
+                <script>var dic8 = ["会计学", "一公教B101", "刘晓晖*姜红"]
+                    for (var x in dic8) {
+                        document.write(dic8[x] + "<br>");
+                    }
+                </script>
+            </td>
+            <td></td>
+        </tr>
+    </table>
+    <p>注释：悬停在特定格里会出现其他安排</p>
+</body>
+
+</html>
