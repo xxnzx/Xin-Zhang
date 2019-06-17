@@ -1,0 +1,152 @@
+<html>
+<head>
+
+    <style>
+        table {
+            width: 650px;
+            height: 100px;
+            border-collapse: collapse;
+            margin: 50px;
+            table-layout: fixed;
+            background-color: aliceblue
+        }
+
+        table,
+        td,
+        th {
+            border: 1px solid black;
+            text-align: center;
+        }
+
+        td,
+        th {
+            width: 110px;
+            height: 110px;
+            position: relative;
+
+        }
+
+        .detail {
+            display: none;
+        }
+
+        .detail.open {
+            display: inline-block;
+            text-align: center;
+            word-break: keep-all;
+            position: relative;
+            height: 110px;
+            width: 110px;
+            background-color: rgb(169, 241, 226);
+        }
+    </style>
+</head>
+
+<body>
+    <center>
+        <table id="table1">
+            <tr>
+                <th>时间/日期</th>
+                <th>星期一</th>
+                <th>星期二</th>
+                <th>星期三</th>
+                <th>星期四</th>
+                <th>星期五</th>
+            </tr>
+        </table>
+    </center>
+    <center>
+        <table id="table2" style="display:none">
+            <tr>
+                <th>时间/日期</th>
+                <th>星期一</th>
+                <th>星期二</th>
+                <th>星期三</th>
+                <th>星期四</th>
+                <th>星期五</th>
+            </tr>
+        </table>
+    </center>
+    <center>
+            <table>
+                <tbody>
+                    <tr>
+                        <td id="table1" onclick="selectMenu(this,'table1')"><a href="#" mce_href="#"><span>单周</span></a>
+                        </td>
+                        <td id="table2" onclick="selectMenu(this,'table2')"><a href="#" mce_href="#"><span>双周</span></a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </center>
+    <script>
+        let i = 0;
+        let j = 0;
+        let courses = [[
+            "8:20~10:00", "web应用开发技术", "西方文化简史", "管理信息系统", "运营管理", " ",
+            "10:20~12:00", "毛泽东思想与中国特色社会主义理论体系", "管理科学基础", "毛泽东思想与中国特色社会主义理论体系", "管理科学基础", "运营管理",
+            "14:00~15:40", "管理信息系统", "数据库实践", "会计学", "体育", "毛泽东思想与中国特色社会主义理论体系",
+            "16:00~17:40", "电子商务", "数据库原理及应用", "", "会计学", ""],
+        [
+            "8:20~10:00", "web应用开发技术", "西方文化简史", "管理信息系统", "数据库管理及应用", " ",
+            "10:20~12:00", "毛泽东思想与中国特色社会主义理论体系", "管理科学基础", "毛泽东思想与中国特色社会主义理论体系", "管理科学基础", "运营管理",
+            "14:00~15:40", "管理信息系统", "数据库实践", "", "体育", "毛泽东思想与中国特色社会主义理论体系",
+            "16:00~17:40", "电子商务", "数据库原理及应用", "", "会计学", ""
+        ]]
+        details = [["", "1~15周 一公教C411", "1~17周 一公交C311", "1~15周单周 一公教C105", "1~15周 一公教B405", "",
+            "", "1~16周 一公教A120", "3~17周 一公教C411", "1~16周 一公教A120", "3~17周 一公教C411", "1~15周 一公教B405",
+            "", "1~15周 一公教C105", "3、4、9、10、12、13周 管院机房3、4大节", "1~17周 一公教B101", "1~14周 体育馆", "1~16周 一公教A120",
+            "", "3~17周 一公教B303", "1~15周 一公教C109", "", "1~17周 一公教B101", ""], ["", "1~15周 一公教C411", "1~17周 一公交C311", "1~15周单周 一公教C105", "2~14周 一公教B405", "",
+            "", "1~16周 一公教A120", "3~17周 一公教C411", "1~16周 一公教A120", "3~17周 一公教C411", "1~15周 一公教B405",
+            "", "1~15周 一公教C105", "3、4、9、10、12、13周 管院机房3、4大节", "", "1~14周 体育馆", "1~16周 一公教A120",
+            "", "3~17周 一公教B303", "1~15周 一公教C109", "", "1~17周 一公教B101", ""
+        ]]
+        ids = ["table1", "table2"]
+        for (let m = 0; m <= 1; m++) {
+            let tblEl = document.getElementById(ids[m]);
+            for (let i = 0; i <= 3; i++) {
+                let trEl = document.createElement('tr');
+                for (let j = 0; j <= 5; j++) {
+                    let tdEl = document.createElement('td');
+                    tdEl.innerHTML = courses[m][6 * i + j];
+                    if ((6 * i + j) % 6 != 0) {
+                        let detailDivEl = document.createElement('div');
+                        detailDivEl.className = 'detail';
+                        detailDivEl.innerHTML = details[m][6 * i + j];
+                        detailDivEl.onmouseout = function (event) {
+                            let names = detailDivEl.className.split(' ');
+                            names = names.filter((x) => x != 'open')
+                            detailDivEl.className = names.join(' ');
+                        }
+                        tdEl.onclick = function (event) {
+                            let names = detailDivEl.className.split(' ');
+
+                            if (names.indexOf('open') >= 0) {
+                                names = names.filter((x) => x != 'open')
+                            } else {
+                                names.push('open');
+                            }
+                            console.log(names);
+                            detailDivEl.className = names.join(' ');
+                        };
+                        tdEl.append(detailDivEl);
+                    }
+                    trEl.append(tdEl);
+                }
+                tblEl.append(trEl);
+            }
+        }
+        document.ready(function () {
+            selectMenu(document.getElementById('td1'), 'table1');
+        })
+        function selectMenu(oThis, tabID) {
+            for (i = 1; i < 3; i++) {
+                document.getElementById("table" + i).style.display = "none";
+            }
+            document.getElementById(tabID).style.display = "";
+        }
+
+    </script>
+</body>
+
+</html>
